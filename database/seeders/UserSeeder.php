@@ -17,6 +17,8 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345'),
             'is_admin' => true,
+            'is_active' => true,
+            'payment_plan_id' => null,
         ]);
 
         User::factory(4)->create();
