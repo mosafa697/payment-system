@@ -89,7 +89,9 @@ class LoginRequest extends FormRequest
         $is_valid = User::where('email', $this->string('email'))->first()->is_active;
 
         if (!$is_valid) {
-            abort('403', 'Your account is not active, contact your administrator');
+            throw ValidationException::withMessages([
+                'email' => 'Your account is not active, contact your administrator'
+            ]);
         }
     }
 }
